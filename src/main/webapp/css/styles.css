@@ -1,0 +1,83 @@
+html, body {
+    height: 100%;
+}
+
+.wrapper {
+    position: absolute;
+    margin-top: 5rem;
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.content {
+    display: table-row;
+    height: 100%;
+}
+
+.footer {
+    height: 4rem;
+}
+
+a, button {
+    cursor: pointer
+}
+
+span i {
+    vertical-align: middle;
+}
+
+.bg-gray {
+    background-color: #eee;
+}
+
+.rounded-box {
+    border-radius: 1rem;
+    box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.05);
+}
+
+.material-icons.f24 {
+    font-size: 2.4rem;
+}
+
+.btn-with-icon div {
+    float: left;
+    /*font-size: 80%;*/
+}
+
+.btn-with-icon span {
+    vertical-align: text-bottom;
+    margin-left: 0.5rem;
+}
+
+.btn-lg.btn-with-icon div {
+    padding-top: 0.1rem;
+    margin-top: 0.15rem;
+    float: left;
+}
+
+.btn-lg.btn-with-icon span {
+    margin-left: 0.5rem;
+}
+
+.brand {
+    font-family: 'Bungee', cursive;
+    text-decoration: none;
+    font-size: 2em;
+    float: left;
+    margin-left: 1rem;
+}
+
+.nav-hight {
+    height: 5rem;
+}
+
+.logo {
+    height: 3rem;
+    width: 3rem;
+}
+
+.scrollable {
+    height: calc(100% - 5rem);
+    overflow-y: scroll
+}
