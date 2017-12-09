@@ -9,7 +9,7 @@
                     Video-demo on Youtube</a>
             </div>
             <div class="col-4 text-right">
-                <a class="btn btn-outline-light" href="https://github.com/voksus/hmarka" target="_blank">
+                <a class="btn btn-light" href="https://github.com/voksus/hmarka" target="_blank">
                    <%--data-toggle="tooltip" data-placement="top" title="Will open sources of this project in a new tab.">--%>
                     <div class="float-left mr-2">This project on</div>
                     <div class="float-left mt-1">

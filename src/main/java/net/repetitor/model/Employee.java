@@ -38,4 +38,12 @@ public class Employee {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "e{" +
+                "#" + id +
+                " l='" + login + '\'' +
+                " n='" + name + '\'' +
+                '}';
+    }
 }
