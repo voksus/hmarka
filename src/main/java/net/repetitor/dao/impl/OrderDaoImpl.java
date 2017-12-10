@@ -4,10 +4,7 @@ import net.repetitor.dao.AbstractDao;
 import net.repetitor.dao.Dao;
 import net.repetitor.model.Order;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +15,25 @@ public class OrderDaoImpl extends AbstractDao implements Dao<Order> {
 
     @Override
     public void create(Order order) {
-
+        Connection connection = null;
+        try {
+            connection = getConnection();
+            PreparedStatement ps = connection.prepareStatement(
+                    "INSERT INTO orders (employee_login, region_id, price, date) VALUES (?, ?, ?, ?)");
+                ps.setString(1, order.getEmployeeLogin());
+                ps.setInt(2, order.getRegionId());
+                ps.setInt(3, order.getPrice());
+                ps.setTimestamp(4, order.getTimestamp());
+                ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        } finally {
+            if (connection != null) try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
@@ -29,15 +44,14 @@ public class OrderDaoImpl extends AbstractDao implements Dao<Order> {
             connection = getConnection();
             Statement st = getConnection().createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM orders");
-            Order order;
             while (rs.next()) {
-                order = new Order(
+                orders.add(new Order(
+                        rs.getInt("id"),
                         rs.getString("employee_login"),
                         rs.getInt("region_id"),
                         rs.getInt("price"),
-                        rs.getTimestamp("date"));
-                order.setId(rs.getInt("id"));
-                orders.add(order);
+                        rs.getTimestamp("date"))
+                );
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());

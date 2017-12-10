@@ -12,7 +12,7 @@ import java.sql.SQLException;
 public abstract class AbstractDao {
 
     private static final String driver = "com.mysql.jdbc.Driver";
-    private static final String url = "jdbc:mysql://127.0.0.1:3306/hmarka?useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    private static final String url = "jdbc:mysql://127.0.0.1:3306/hmarka?useSSL=false&useJDBCCompliantTimezoneShift=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private static final String name = "root";
     private static final String password = "120378";
 

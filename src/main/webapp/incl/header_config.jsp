@@ -26,13 +26,18 @@
 <link href="images/favicon.png" rel="shortcut icon" type="image/png">
 <link href="css/styles.css" rel="stylesheet" type="text/css">
 
+<%-- Bootstrap 4.0.0-beta.2 --%>
+<%--<link href="css/bootstrap.css" rel="stylesheet" type="text/css">--%>
+<%--<script src="js/bootstrap.js"></script>--%>
+
 <script>
     $("#datepicker").datepicker({
         dateFormat: "dd-mm-yy",
         showButtonPanel: true
     });
+    // $(".alert").alert();
+    $(".alert").alert('close');
+    function goBack() {
+        window.history.back();
+    }
 </script>
-
-<%-- Bootstrap 4.0.0-beta.2 --%>
-<%--<link href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet" type="text/css">--%>
-<%--<script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>--%>

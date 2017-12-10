@@ -30,11 +30,13 @@ public class RegionDaoImpl extends AbstractDao implements Dao<Region> {
             connection = getConnection();
             Statement st = getConnection().createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM regions");
-            Region region;
             while (rs.next()) {
-                region = new Region(rs.getString("name"), rs.getInt("country_id"));
-                region.setId(rs.getInt("id"));
-                regions.add(region);
+                regions.add(new Region(
+                                rs.getInt("id"),
+                                rs.getString("name"),
+                                rs.getInt("country_id")
+                        )
+                );
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());

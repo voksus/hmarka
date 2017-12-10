@@ -29,11 +29,11 @@ public class CountryDaoImpl extends AbstractDao implements Dao<Country> {
             connection = getConnection();
             Statement st = getConnection().createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM countries");
-            Country country;
             while (rs.next()) {
-                country = new Country(rs.getString("name"));
-                country.setId(rs.getInt("id"));
-                countries.add(country);
+                countries.add(new Country(
+                        rs.getInt("id"),
+                        rs.getString("name"))
+                );
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());

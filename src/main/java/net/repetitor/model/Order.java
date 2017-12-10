@@ -13,7 +13,8 @@ public class Order {
     private int price;
     private Timestamp timestamp;
 
-    public Order(String employeeLogin, int regionId, int price, Timestamp timestamp) {
+    public Order(int id, String employeeLogin, int regionId, int price, Timestamp timestamp) {
+        this.id = id;
         this.employeeLogin = employeeLogin;
         this.regionId = regionId;
         this.price = price;
@@ -60,4 +61,14 @@ public class Order {
         this.timestamp = timestamp;
     }
 
+    @Override
+    public String toString() {
+        return "{" +
+                "#" + id +
+                ", eLG='" + employeeLogin + '\'' +
+                ", rID=" + regionId +
+                ", pr=" + price +
+                ", ts=" + timestamp +
+                '}';
+    }
 }

@@ -14,7 +14,8 @@ import java.util.List;
 public class EmployeeDaoImpl extends AbstractDao implements EmployeeDao {
 
     @Override
-    public void create(Employee employee) {}
+    public void create(Employee employee) {
+    }
 
     @Override
     public List<Employee> readAll() {
@@ -24,11 +25,12 @@ public class EmployeeDaoImpl extends AbstractDao implements EmployeeDao {
             connection = getConnection();
             Statement st = getConnection().createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM employee");
-            Employee employee;
             while (rs.next()) {
-                employee = new Employee(rs.getString("login"), rs.getString("name"));
-                employee.setId(rs.getInt("id"));
-                employees.add(employee);
+                employees.add(new Employee(
+                        rs.getInt("id"),
+                        rs.getString("login"),
+                        rs.getString("name"))
+                );
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
