@@ -5,7 +5,7 @@
             <div class="form-group col-12">
                 <label for="employeeSelect">Select employee</label>
                 <select class="form-control" id="employeeSelect" name="employee"
-                        aria-describedby="employeeHelp">
+                        aria-describedby="employeeHelp" required>
                     <option value="" selected disabled></option>
                     <c:forEach items="${employees}" var="employee">
                         <option value="${employee.id}">${employee.id} ${employee.name}</option>
@@ -18,7 +18,7 @@
             <div class="form-group col-12">
                 <label for="regionSelect">Select region</label>
                 <select class="form-control" id="regionSelect" name="region"
-                        aria-describedby="regionHelp">
+                        aria-describedby="regionHelp" required>
                     <option value="" selected disabled></option>
                     <c:forEach var="region" items="${regions}">
                         <option value="${region.id}">${region.id} ${region.name}</option>
@@ -31,8 +31,7 @@
             <div class="col form-group">
                 <label for="price">Enter price</label>
                 <input type="number" class="form-control" id="price" name="price"
-                       aria-describedby="priceHelp"
-                       placeholder="Enter price for order..." min="1">
+                       aria-describedby="priceHelp" placeholder="Enter price for order..." min="1" required>
                 <small id="priceHelp" class="form-text font-weight-light text-muted">This is price.
                     Must be greater then '0'. (required)
                 </small>
@@ -41,7 +40,7 @@
                 <label for="dateInput">Choose date</label>
                 <div class="input-group date" id="dateInput">
                     <input type="text" class="form-control" id="datepicker" name="date"
-                           placeholder="dd-mm-yyyy" value="${date}">
+                           placeholder="dd-mm-yyyy" value="${date}" required>
                     <span class="input-group-addon"><i class="material-icons">date_range</i></span>
                 </div>
             </div>
