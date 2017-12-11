@@ -3,7 +3,7 @@
 #### This is an exam task for implementing a web application
 It is designed to manage orders and display it's statistics. The 1st goal was to make possible to record an 'Order' in DB with certain parametres using web-UI.
 
-#### Tech.:
+#### Used techology:
  - MySQL;
  - WebServlet;
  - JDBS;
