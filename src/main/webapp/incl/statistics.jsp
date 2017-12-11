@@ -4,6 +4,7 @@
         <div class="row">
             <div class="form-group col-12">
 
+
                 <div class="display-1 text-center mt-5">SORRY !</div>
                 <div class="lead text-center">come back later</div>
                 <div class="text-center my-5">
@@ -13,4 +14,5 @@
         </div>
     </form>
     <%@include file="alert.jsp" %>
+    <%@include file="info.jsp" %>
 </div>

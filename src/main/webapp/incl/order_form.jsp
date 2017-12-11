@@ -1,6 +1,6 @@
 <h1 class="text-center display-3 mt-4">Please make an order:</h1>
 <div class="row justify-content-md-center">
-    <form class="col-md-8 mb-4" method="post">
+    <form class="col-md-8 mb-4" action="${pageContext.request.contextPath}/add_order" method="post">
         <div class="row">
             <div class="form-group col-12">
                 <label for="employeeSelect">Select employee</label>
@@ -8,7 +8,7 @@
                         aria-describedby="employeeHelp">
                     <option value="" selected disabled></option>
                     <c:forEach items="${employees}" var="employee">
-                        <option value="${employee.id}">${employee.name}</option>
+                        <option value="${employee.id}">${employee.id} ${employee.name}</option>
                     </c:forEach>
                 </select>
                 <small id="employeeHelp" class="form-text font-weight-light text-muted">
@@ -21,7 +21,7 @@
                         aria-describedby="regionHelp">
                     <option value="" selected disabled></option>
                     <c:forEach var="region" items="${regions}">
-                        <option value="${region.id}">${region.name}</option>
+                        <option value="${region.id}">${region.id} ${region.name}</option>
                     </c:forEach>
                 </select>
                 <small id="regionHelp" class="form-text font-weight-light text-muted">The order will
@@ -51,4 +51,5 @@
         </div>
     </form>
     <%@include file="alert.jsp"%>
+    <%@include file="info.jsp"%>
 </div>

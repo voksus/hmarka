@@ -13,13 +13,18 @@ import java.util.List;
  */
 public class EmployeeDaoImpl extends AbstractDao implements EmployeeDao {
 
+    private static List<Employee> employees;
+
     @Override
     public void create(Employee employee) {
     }
 
     @Override
     public List<Employee> readAll() {
-        List<Employee> employees = new ArrayList<>();
+
+        if (employees != null) return employees;
+
+        employees = new ArrayList<>();
         Connection connection = null;
         try {
             connection = getConnection();
@@ -57,6 +62,7 @@ public class EmployeeDaoImpl extends AbstractDao implements EmployeeDao {
 
     @Override
     public Employee getById(int id) {
-        return null;
+        return employees.stream().filter(e -> e.getId() == id).findFirst().get();
     }
+
 }

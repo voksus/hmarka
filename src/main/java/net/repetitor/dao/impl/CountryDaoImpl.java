@@ -16,14 +16,18 @@ import java.util.List;
  */
 public class CountryDaoImpl extends AbstractDao implements Dao<Country> {
 
+    private static List<Country> countries;
+
     @Override
     public void create(Country country) {
-
     }
 
     @Override
     public List<Country> readAll() {
-        List<Country> countries = new ArrayList<>();
+
+        if (countries != null) return countries;
+
+        countries = new ArrayList<>();
         Connection connection = null;
         try {
             connection = getConnection();

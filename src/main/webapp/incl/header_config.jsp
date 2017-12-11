@@ -35,7 +35,6 @@
         dateFormat: "dd-mm-yy",
         showButtonPanel: true
     });
-    // $(".alert").alert();
     $(".alert").alert('close');
     function goBack() {
         window.history.back();

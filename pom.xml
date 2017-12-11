@@ -14,7 +14,7 @@
 
     <build>
         <plugins>
-            <plugin>
+            <!--<plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <version>3.0.1</version>
@@ -34,8 +34,15 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
 
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <target>1.8</target>
+                    <source>1.8</source>
+                </configuration>
+            </plugin>
             <plugin>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.1.0</version>
@@ -56,33 +63,26 @@
         </plugins>
     </build>
 
-    <properties>
-        <servlet.api.version>4.0.0</servlet.api.version>
-        <servlet.jstl.version>1.2</servlet.jstl.version>
-        <mysql.ver>8.0.8-dmr</mysql.ver>
-        <common.dbcp>1.4</common.dbcp>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>${servlet.api.version}</version>
+            <version>4.0.0</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
-            <version>${servlet.jstl.version}</version>
+            <version>1.2</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>${mysql.ver}</version>
+            <version>8.0.8-dmr</version>
         </dependency>
         <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
-            <version>${common.dbcp}</version>
+            <version>1.4</version>
         </dependency>
     </dependencies>
 

@@ -19,10 +19,10 @@
             <div class="row my-3">
                 <div class="rounded-box bg-light col-12">
                     <c:choose>
-                        <c:when test="${page.equals('make_order')}">
+                        <c:when test="${current_page.equals('add_order')}">
                             <%@include file="incl/order_form.jsp" %>
                         </c:when>
-                        <c:when test="${page.equals('statistics')}">
+                        <c:when test="${current_page.equals('statistics')}">
                             <%@include file="incl/statistics.jsp" %>
                         </c:when>
                     </c:choose>

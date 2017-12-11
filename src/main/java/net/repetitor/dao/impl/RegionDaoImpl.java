@@ -17,14 +17,18 @@ import java.util.List;
  */
 public class RegionDaoImpl extends AbstractDao implements Dao<Region> {
 
+    private static List<Region> regions;
+
     @Override
     public void create(Region region) {
-
     }
 
     @Override
     public List<Region> readAll() {
-        List<Region> regions = new ArrayList<>();
+
+        if (regions != null) return regions;
+
+        regions = new ArrayList<>();
         Connection connection = null;
         try {
             connection = getConnection();

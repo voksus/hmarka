@@ -13,6 +13,8 @@ import java.util.List;
  */
 public class OrderDaoImpl extends AbstractDao implements Dao<Order> {
 
+    private static List<Order> orders;
+
     @Override
     public void create(Order order) {
         Connection connection = null;
@@ -38,7 +40,10 @@ public class OrderDaoImpl extends AbstractDao implements Dao<Order> {
 
     @Override
     public List<Order> readAll() {
-        List<Order> orders = new ArrayList<>();
+
+        if (orders != null) return orders;
+
+        orders = new ArrayList<>();
         Connection connection = null;
         try {
             connection = getConnection();
@@ -80,4 +85,5 @@ public class OrderDaoImpl extends AbstractDao implements Dao<Order> {
     public Order getById(int id) {
         return null;
     }
+
 }
