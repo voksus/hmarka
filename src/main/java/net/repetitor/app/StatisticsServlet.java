@@ -1,7 +1,8 @@
 package net.repetitor.app;
 
-import net.repetitor.dao.EmployeeDao;
+import net.repetitor.dao.Dao;
 import net.repetitor.dao.impl.CountryDaoImpl;
+import net.repetitor.dao.impl.EmployeeDaoImpl;
 import net.repetitor.dao.impl.OrderDaoImpl;
 import net.repetitor.dao.impl.RegionDaoImpl;
 
@@ -18,15 +19,23 @@ import java.io.IOException;
 @WebServlet(name = "StatisticsServlet", urlPatterns = "/statistics")
 public class StatisticsServlet extends HttpServlet {
 
-    private OrderDaoImpl oDao;
-    private EmployeeDao eDao;
-    private RegionDaoImpl rDao;
-    private CountryDaoImpl cDao;
+    private Dao oDao;
+    private Dao eDao;
+    private Dao rDao;
+    private Dao cDao;
+
+    @Override
+    public void init() {
+        oDao = new OrderDaoImpl();
+        eDao = new EmployeeDaoImpl();
+        rDao = new RegionDaoImpl();
+        cDao = new CountryDaoImpl();
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("STATISTICS servlet");
-        super.doGet(req, resp);
+        req.setAttribute("current_page", "statistics");
+        req.getRequestDispatcher("mpage.jsp").forward(req, resp);
     }
 
     @Override
